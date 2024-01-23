@@ -33,9 +33,8 @@ struct ContentView: View {
             Button("Button") {
                 let nums = [num1, num2, num3 ,num4, num5]
                 
-                let total = nums.reduce(0) { result, num in
-                    result + (Int(num) ?? 0)
-                }
+                let total = nums.map { Int($0) ?? 0 }.reduce(0, +)
+
                 labelText = String(total)
             }
             .padding()
